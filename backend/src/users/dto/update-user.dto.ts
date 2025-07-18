@@ -1,4 +1,4 @@
-import { IsEmail, IsOptional, IsString, MinLength, ValidateNested } from 'class-validator'
+import { IsOptional, IsString, MinLength, ValidateNested } from 'class-validator'
 import { Type } from 'class-transformer'
 
 class UpdateAddressDto {

@@ -1,4 +1,3 @@
-// users/users.controller.ts
 import { Controller, Get, Param, Patch, Delete, Body, NotFoundException } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { UpdateUserDto } from './dto/update-user.dto'
