@@ -4,10 +4,10 @@ import { Document, Types } from 'mongoose'
 @Schema({ timestamps: true })
 export class User {
     @Prop()
-    firstName?: string
+    firstName: string
 
     @Prop()
-    lastName?: string
+    lastName: string
 
     @Prop({ required: true, unique: true })
     email: string
@@ -16,7 +16,7 @@ export class User {
     password: string
 
     @Prop()
-    phone?: string
+    phone: string
 
     @Prop({
         type: {
@@ -27,16 +27,19 @@ export class User {
             country: String,
         },
     })
-    address?: {
-        street?: string
-        city?: string
-        area?: string
-        zip?: string
-        country?: string
+    address: {
+        street: string
+        city: string
+        area: string
+        zip: string
+        country: string
     }
 
     @Prop({ default: false })
     isEmailVerified: boolean
+
+    @Prop({ default: false })
+    vip: boolean
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Product' }] })
     cart: Types.ObjectId[]
