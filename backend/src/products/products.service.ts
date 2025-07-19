@@ -8,6 +8,11 @@ import { UpdateProductDto } from './dto/update-product.dto'
 export class ProductsService {
     constructor(@InjectModel(Product.name) private productModel: Model<ProductDocument>) {}
 
+    async createProduct(dto: UpdateProductDto): Promise<Product> {
+        const createdProduct = new this.productModel(dto)
+        return createdProduct.save()
+    }
+
     async findById(id: string): Promise<Product | null> {
         return this.productModel.findById(id).exec()
     }

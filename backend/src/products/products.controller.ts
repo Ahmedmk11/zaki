@@ -1,10 +1,25 @@
-import { Controller, Get, Param, Patch, Delete, Body, NotFoundException } from '@nestjs/common'
+import {
+    Controller,
+    Get,
+    Param,
+    Patch,
+    Delete,
+    Body,
+    NotFoundException,
+    Post,
+} from '@nestjs/common'
 import { ProductsService } from './products.service'
 import { UpdateProductDto } from './dto/update-product.dto'
+import { CreateProductDto } from './dto/create-product.dto'
 
 @Controller('products')
 export class ProductsController {
     constructor(private readonly productsService: ProductsService) {}
+
+    @Post()
+    async createProduct(@Body() dto: CreateProductDto) {
+        return this.productsService.createProduct(dto)
+    }
 
     @Get(':id')
     async getProduct(@Param('id') id: string) {

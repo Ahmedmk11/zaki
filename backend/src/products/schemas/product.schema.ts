@@ -10,7 +10,7 @@ export class Product {
     description: string
 
     @Prop({ required: false })
-    volume: string
+    volume: number
 
     @Prop({ required: true })
     price: number

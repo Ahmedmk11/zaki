@@ -3,10 +3,10 @@ import { Document, Types } from 'mongoose'
 
 @Schema({ timestamps: true })
 export class User {
-    @Prop()
+    @Prop({ required: true })
     firstName: string
 
-    @Prop()
+    @Prop({ required: true })
     lastName: string
 
     @Prop({ required: true, unique: true })
@@ -26,8 +26,9 @@ export class User {
             zip: String,
             country: String,
         },
+        required: false,
     })
-    address: {
+    address?: {
         street: string
         city: string
         area: string
@@ -35,17 +36,20 @@ export class User {
         country: string
     }
 
-    @Prop({ default: false })
+    @Prop({ required: true, default: false })
     isEmailVerified: boolean
 
-    @Prop({ default: false })
+    @Prop({ required: true, default: false })
     vip: boolean
 
+    @Prop({ required: true, default: false })
+    isAdmin: boolean
+
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Product' }] })
-    cart: Types.ObjectId[]
+    cart?: Types.ObjectId[]
 
     @Prop({ type: [{ type: Types.ObjectId, ref: 'Order' }] })
-    orders: Types.ObjectId[]
+    orders?: Types.ObjectId[]
 }
 
 export type UserDocument = User & Document

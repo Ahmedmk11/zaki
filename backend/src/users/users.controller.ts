@@ -1,10 +1,26 @@
-import { Controller, Get, Param, Patch, Delete, Body, NotFoundException } from '@nestjs/common'
+import {
+    Controller,
+    Get,
+    Param,
+    Patch,
+    Delete,
+    Body,
+    NotFoundException,
+    Post,
+} from '@nestjs/common'
 import { UsersService } from './users.service'
 import { UpdateUserDto } from './dto/update-user.dto'
+import { CreateUserDto } from './dto/create-user.dto'
 
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
+
+    @Post()
+    async createUser(@Body() dto: CreateUserDto) {
+        const user = await this.usersService.createUser(dto)
+        return user
+    }
 
     @Get(':id')
     async getUser(@Param('id') id: string) {
