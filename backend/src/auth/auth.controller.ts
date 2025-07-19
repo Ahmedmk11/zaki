@@ -1,5 +1,4 @@
-// users/users.controller.ts
-import { Controller, Body, Post, Res } from '@nestjs/common'
+import { Controller, Body, Post, Res, Query } from '@nestjs/common'
 import { AuthService } from './auth.service'
 import { RegisterDto } from './dto/register.dto'
 import { LoginDto } from './dto/login.dto'
@@ -16,5 +15,15 @@ export class AuthController {
     @Post('login')
     async login(@Body() dto: LoginDto, @Res({ passthrough: true }) res: Response) {
         return this.authService.login(dto, res)
+    }
+
+    @Post('verify-email')
+    async verifyEmail(@Query('token') token: string) {
+        return this.authService.verifyEmail(token)
+    }
+
+    @Post('resend-verification')
+    async resendVerification(@Body('email') email: string) {
+        return this.authService.resendVerification(email)
     }
 }

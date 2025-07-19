@@ -39,6 +39,10 @@ export class User {
     @Prop({ required: true, default: false })
     isEmailVerified: boolean
 
+    verificationCode: string | null
+
+    verificationCodeExpiresAt: Date | null
+
     @Prop({ required: true, default: false })
     vip: boolean
 

@@ -29,6 +29,12 @@ export class CreateUserDto {
     @IsBoolean()
     isEmailVerified: boolean
 
+    @IsOptional()
+    verificationCode?: string | null
+
+    @IsOptional()
+    verificationCodeExpiresAt?: Date | null
+
     @IsBoolean()
     vip: boolean
 

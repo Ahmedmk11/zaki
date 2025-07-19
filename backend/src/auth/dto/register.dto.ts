@@ -36,6 +36,9 @@ export class RegisterDto {
     @IsString()
     phone: string
 
+    verificationCode: string | null
+    verificationCodeExpiresAt: Date | null
+
     @ValidateNested()
     @Type(() => AddressDto)
     address: AddressDto

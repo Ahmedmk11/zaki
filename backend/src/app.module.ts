@@ -4,9 +4,10 @@ import { AuthModule } from './auth/auth.module'
 import { UsersModule } from './users/users.module'
 import { ProductsModule } from './products/products.module'
 import { OrdersModule } from './orders/orders.module'
+import { MailModule } from './utils/mailer/mail.module'
 
 @Module({
-    imports: [DatabaseModule, AuthModule, UsersModule, ProductsModule, OrdersModule],
+    imports: [DatabaseModule, AuthModule, UsersModule, ProductsModule, OrdersModule, MailModule],
     controllers: [],
     providers: [],
 })
