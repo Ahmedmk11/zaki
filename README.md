@@ -1,2 +1,3 @@
 # zaki
-Welcome to Zaki, where Mediterranean tradition meets premium quality. Discover the rich flavors of our extra virgin olive oil, sourced directly from our local farm. Elevate your culinary creations with Zaki's finest olive oil.
+
+Zaki is an e-commerce website for high-quality extra virgin olive oil, designed to offer a smooth shopping experience with a clean interface and straightforward checkout.
