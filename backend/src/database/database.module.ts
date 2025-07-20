@@ -1,12 +1,17 @@
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
-
-const mongoUri = process.env.MONGO_URI
-if (!mongoUri) {
-    throw new Error('MONGO_URI is not defined in the environment variables')
-}
+import { ConfigModule, ConfigService } from '@nestjs/config'
 
 @Module({
-    imports: [MongooseModule.forRoot(mongoUri)],
+    imports: [
+        ConfigModule,
+        MongooseModule.forRootAsync({
+            imports: [ConfigModule],
+            useFactory: (configService: ConfigService) => ({
+                uri: configService.get<string>('MONGO_URI'),
+            }),
+            inject: [ConfigService],
+        }),
+    ],
 })
 export class DatabaseModule {}

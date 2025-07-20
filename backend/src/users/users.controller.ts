@@ -10,16 +10,16 @@ import {
 } from '@nestjs/common'
 import { UsersService } from './users.service'
 import { UpdateUserDto } from './dto/update-user.dto'
-import { CreateUserDto } from './dto/create-user.dto'
+import { CreateAdminDto } from './dto/create-admin.dto'
 
 @Controller('users')
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     @Post()
-    async createUser(@Body() dto: CreateUserDto) {
-        const user = await this.usersService.createUser(dto)
-        return user
+    async createAdmin(@Body() dto: CreateAdminDto) {
+        const admin = await this.usersService.createAdmin(dto)
+        return admin
     }
 
     @Get(':id')
