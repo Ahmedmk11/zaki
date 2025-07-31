@@ -1,19 +1,16 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-})
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-})
+import {
+    MelodramaBold,
+    MelodramaSemibold,
+    OutfitRegular,
+    OutfitMedium,
+    OutfitSemibold,
+} from './fonts/fonts'
 
 export const metadata: Metadata = {
     title: 'Zaki | Premium Extra Virgin Olive Oil from Egypt',
@@ -65,7 +62,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+            <body
+                className={`antialiased
+                ${MelodramaBold.variable} 
+                ${MelodramaSemibold.variable} 
+                ${OutfitRegular.variable} 
+                ${OutfitMedium.variable} 
+                ${OutfitSemibold.variable}
+                `}
+            >
                 <Header />
                 {children}
                 <Footer />

@@ -24,3 +24,31 @@ body {
     color: var(--foreground);
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.melodrama-bold {
+    font-family: var(--font-melodrama-bold);
+}
+
+.melodrama-semibold {
+    font-family: var(--font-melodrama-semibold);
+}
+
+.outfit-regular {
+    font-family: var(--font-outfit-regular);
+}
+
+.outfit-medium {
+    font-family: var(--font-outfit-medium);
+}
+
+.outfit-semibold {
+    font-family: var(--font-outfit-semibold);
+}
+
+.text-primary {
+    color: #eedebe;
+}
+
+.text-secondary {
+    color: #4a491e;
+}
